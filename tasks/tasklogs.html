@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	    <title>ViewIT PMP</title>
+	    <link rel="stylesheet" href="../css/weui.min.css" />
+	    <link rel="stylesheet" type="text/css" href="../css/rendezvous.css"/>
+	    <link rel="stylesheet" type="text/css" href="../css/taskcalendar.css"/>
+	    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	    <script type="text/javascript" src="../js/jquery-1.12.1.min.js" ></script>
+	    <script src="../js/rendezvous.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/calendarext.js" type="text/javascript" charset="utf-8"></script>
+	    <script src="../js/tasks.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				var taskid = getQueryString('taskid');
+				//alert(taskid);
+				loadTaskLog(taskid,'tasklist');
+				$('.calendarimg').on('click',calenderimgclick);
+			});
+		</script>	    
+	</head>
+	<body>
+		<nav class="nav">
+			<img class="calendarimg" src="../img/calendar.png" />
+			<div class=nav-content>
+					任务日志
+			</div>
+		</nav>
+		<div class="content1">
+			<div id='tasklist'></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+#rendez-vous{
+	position: fixed;
+    margin-top: 45px;
+    opacity: 100;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+#rendez-vous .rendezvous-popup {
+	position : relative;
+}
+.rendezvous-datepicker{
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+}
+.rendezvous-input-date{
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	border-style: none;
+	font-size: large;
+}
+.rendezvous-datepicker-calendar-day{
+	height: 2em;
+	text-align: center;
+}
+.rendezvous-datepicker-navigation{
+	background-color: #09BB07;
+}
