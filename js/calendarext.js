@@ -1,10 +1,8 @@
 $(document).ready(function() {
 	//alert(window.location.host);
-	$('#rendez-vous').on('rendezvous-change',function(data,d1,d2,d3){
-		// alert(d1.displayedDate);
-		//d1.format('%Y-%M-%D',d1.getDate())
+	$('#rendez-vous').on('rendezvous-change',function(event, rdv){
 		var tasks = [];
-		var curdate = d1.format('%Y-%M-%D',d1.getDate());
+		var curdate = rdv.format('%Y-%M-%D',rdv.getDate());
 		for (var i = 0; i < 5; i++) {
 			var task = {};
 			task.id = i;
@@ -16,7 +14,11 @@ $(document).ready(function() {
 		$('#tlist').empty();
 		loadTasksByDate(curdate,'tlist');
 		}
-	).RendezVous({
+	).on('rendezvous-open', function(event, rdv) {
+        var curdate = rdv.format('%Y-%M-%D',rdv.getDate());
+        //alert(curdate);
+        loadTasksByDate(curdate,'tlist');
+    }).RendezVous({
 	        canClose: false,
 	        openByDefault: true,
 		    formats: {
