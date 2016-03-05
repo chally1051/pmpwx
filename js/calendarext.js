@@ -17,6 +17,7 @@ $(document).ready(function() {
 	).on('rendezvous-open', function(event, rdv) {
         var curdate = rdv.format('%Y-%M-%D',rdv.getDate());
         //alert(curdate);
+        $('.rendezvous-input-date').val(curdate);
         loadTasksByDate(curdate,'tlist');
     }).RendezVous({
 	        canClose: false,
