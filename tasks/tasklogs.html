@@ -16,20 +16,86 @@
 			$(function(){
 				var taskid = getQueryString('taskid');
 				//alert(taskid);
-				loadTaskLog(taskid,'tasklist');
+				//loadTaskLog(taskid,'tasklist');
 				$('.calendarimg').on('click',calenderimgclick);
+				$('.pencilimg').on('click',{taskid:taskid},pencilimgclick);
+				$('#comfirm').on('click',{taskid:taskid},confirmlog);
+				$('#cancle').on('click',{taskid:taskid},cancllog);
 			});
 		</script>	    
 	</head>
 	<body>
 		<nav class="nav">
-			<img class="calendarimg" src="../img/calendar.png" />
-			<div class=nav-content>
-					任务日志
+			<div class="left">
+				<img class="calendarimg" src="../img/calendar.png" />
 			</div>
+
+			<div class="right">
+				<img class="pencilimg" src="../img/pencil.png" />
+			</div>
+			<div class="center">
+					<div class=nav-content>
+						任务日志
+					</div>
+			</div>			
 		</nav>
 		<div class="content1">
 			<div id='tasklist'></div>
 		</div>
+		<div class="logback">
+			<div class="logcontent">
+				<form>
+				<div class="logtitlecontent"><h3>填写日志</h3></div>
+				<div class="weui_cells weui_cells_form">
+		            <div class="weui_cell">
+		                <div class="weui_cell_hd"><label for="" class="weui_label">日期</label></div>
+		                <div class="weui_cell_bd weui_cell_primary">
+		                    <input class="weui_input" name="workdate" type="date" value=""/>
+		                </div>
+		            </div>
+		            <div class="weui_cell">
+		                <div class="weui_cell_bd weui_cell_primary">
+		                    <textarea name="worknote" class="weui_textarea" placeholder="请输入日志内容" rows="4"></textarea>
+		                    <!--<div class="weui_textarea_counter"><span>0</span>/200</div>-->
+		                </div>
+		            </div>
+		            <div class="weui_cell weui_cell_select weui_select_after">
+		                <div class="weui_cell_hd">
+		                    	进度
+		                </div>
+		                <div class="weui_cell_bd weui_cell_primary">
+		                    <select class="weui_select" name="percent">
+		                        <option value="10">10%</option>
+		                        <option value="20">20%</option>
+		                        <option value="30">30%</option>
+		                        <option value="40">40%</option>
+		                        <option value="50">50%</option>
+		                        <option value="60">60%</option>
+		                        <option value="70">70%</option>
+		                        <option value="80">80%</option>
+		                        <option value="90">90%</option>
+		                        <option value="100">100%</option>
+		                    </select>
+		                </div>
+		            </div>
+				</div>
+				<div class="button_sp_area" style="text-align: center;margin-left: auto;margin-right: auto;">
+		            <a id="comfirm" class="weui_btn weui_btn_mini weui_btn_primary" style="width: 30%;">确认</a>
+		            <a id="cancle" class="weui_btn weui_btn_mini weui_btn_default" style="width: 30%;">取消</a>						
+				</div>					
+				</form>
+			</div>
+		</div>
+    <div class="weui_dialog_confirm" id="dialog1" style="display: none;">
+        <div class="weui_mask"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"><strong class="weui_dialog_title">弹窗标题</strong></div>
+            <div class="weui_dialog_bd">自定义弹窗内容，居左对齐显示，告知需要确认的信息等</div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog default">取消</a>
+                <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>		
 	</body>
 </html>

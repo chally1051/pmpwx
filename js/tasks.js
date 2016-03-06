@@ -123,5 +123,24 @@ function calenderimgclick(){
 	} else {
 		location.href = 'taskcalendar.html'
 	}
-	
+}
+
+function pencilimgclick(taskid,date){
+	$('.logback').css('display','block');
+}
+
+function confirmlog(data){
+	//$('#dialog1').css('display','block');
+	var url = "/Task/addWorknote?pk_task="+ data.data.taskid + '&' + $("form").serialize();
+	alert(url); 
+	$.post(
+		url,
+		function(){
+			cancllog();
+		}
+	);
+}
+
+function cancllog(data){
+	$('.logback').css('display','none');
 }
