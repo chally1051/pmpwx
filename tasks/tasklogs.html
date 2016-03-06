@@ -16,7 +16,7 @@
 			$(function(){
 				var taskid = getQueryString('taskid');
 				//alert(taskid);
-				//loadTaskLog(taskid,'tasklist');
+				loadTaskLog(taskid,'tasklist');
 				$('.calendarimg').on('click',calenderimgclick);
 				$('.pencilimg').on('click',{taskid:taskid},pencilimgclick);
 				$('#comfirm').on('click',{taskid:taskid},confirmlog);

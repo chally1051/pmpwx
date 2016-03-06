@@ -131,12 +131,37 @@ function pencilimgclick(taskid,date){
 
 function confirmlog(data){
 	//$('#dialog1').css('display','block');
-	var url = "/Task/addWorknote?pk_task="+ data.data.taskid + '&' + $("form").serialize();
-	alert(url); 
+	//var url = "/wechat/pmpmobile/Task/addWorknote?pk_task="+ data.data.taskid + '&' + $("form").serialize();
+	//alert(url); 
+//	$.ajax({
+//		url : url,
+//		type : 'POST',
+//		success : function(data){
+//			if(data.status){
+//				cancllog();
+//			}else{
+//				alert(data.message);
+//			}
+//		},
+//		ajaxError
+//	}
+//	);
+	var paramarr = $("form").serializeArray();
+	var param = {};
+	param['pk_task'] = data.data.taskid;
+	for (var i = 0; i < paramarr.length; i++) {
+		param[paramarr[i].name] = paramarr[i].value;
+	}
+	var url = "/wechat/pmpmobile/Task/addWorknote";
 	$.post(
 		url,
-		function(){
-			cancllog();
+		param,
+		function(data){
+			if(data.status){
+				cancllog();
+			}else{
+				alert(data.message);
+			}
 		}
 	);
 }
