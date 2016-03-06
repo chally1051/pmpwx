@@ -127,6 +127,7 @@ function calenderimgclick(){
 
 function pencilimgclick(taskid,date){
 	$('.logback').css('display','block');
+	$('.logcontent').css('display','block');
 }
 
 function confirmlog(data){
@@ -168,4 +169,5 @@ function confirmlog(data){
 
 function cancllog(data){
 	$('.logback').css('display','none');
+	$('.logcontent').css('display','none');	
 }
